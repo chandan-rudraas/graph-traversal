@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARGUS Graph Traversal</title>
+</head>
+<body>
+<div id="side">
+  <header>
+    <h1>ARGUS · Graph Query Traversal</h1>
+    <div id="qrow"><input id="q" placeholder="Ask something, e.g. critical risk events in Kulgam" autocomplete="off"><button class="primary" id="go">Run</button></div>
+    <div style="margin-top:8px" class="kv">Query backend:
+      <select id="backend" style="background:#0e1116;color:#e6edf3;border:1px solid #2a3340;border-radius:6px;padding:3px 6px">
+        <option value="local">Browser (in-memory graph)</option>
+        <option value="api">Neo4j (API + Cypher)</option>
+      </select></div>
+    <div id="chips"></div>
+  </header>
+  <div id="scroll">
+    <h2>Answer</h2><div id="answer" style="color:var(--mut)">Run a query to see the answer and how the graph was traversed.</div>
+    <div id="timing" style="font-size:12px;margin:-2px 0 8px"></div>
+    <h2>Traversal <span id="stepcount" class="kv"></span></h2>
+    <div id="ctrl">
+      <button id="first" title="Start">⏮</button><button id="prev" title="Previous">◀</button>
+      <button id="play" class="primary">▶ Play</button>
+      <button id="next" title="Next">▶|</button><button id="last" title="All">⏭</button>
+      <span class="sp"></span><label class="kv">speed <input id="spd" type="range" min="400" max="3000" value="1500" style="width:70px;vertical-align:middle"></label>
+    </div>
+    <div id="steps"></div>
+    <h2>Result events</h2><div id="results"></div>
+  </div>
+</div>
+<div id="main">
+  <div id="net"></div>
+  <div id="banner"></div>
+  <div id="legend"></div>
+  <div id="filters"></div>
+  <div id="info"></div>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
